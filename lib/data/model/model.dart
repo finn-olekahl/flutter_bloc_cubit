@@ -3,7 +3,7 @@ class Post {
   final int id;
   final String title, body;
 
-  Post({this.userId, this.id, this.title, this.body});
+  Post({required this.userId, required this.id, required this.title, required this.body});
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
       userId: json['userId'],

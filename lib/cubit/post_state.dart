@@ -8,7 +8,7 @@ class PostInitial extends PostState {}
 class PostLoaded extends PostState {
   final List<Post> post;
 
-  PostLoaded({this.post});
+  PostLoaded({required this.post});
 }
 
 class PostErrorState extends PostState {

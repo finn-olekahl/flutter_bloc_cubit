@@ -6,25 +6,22 @@ import 'package:meta/meta.dart';
 part 'post_state.dart';
 
 class PostCubit extends Cubit<PostState> {
-  PostCubit({this.repository}) : super(PostInitial());
+  PostCubit({required this.repository}) : super(PostInitial());
 
   final Repository repository;
 
-  Future<List<Post>> fetchPost() async {
+  Future<List<Post>?> fetchPost() async {
     try {
       emit(PostInitial());
 
       repository.fetchPost().then((posts) {
-        if (posts != null) {
-          emit(PostLoaded(post: posts));
-        } else {
-          emit(PostErrorState(message: "Error while fetching Posts"));
-        }
-      });
+        emit(PostLoaded(post: posts));
+            });
     } catch (e) {
       print("Try Catch000");
       print(e);
       emit(PostErrorState(message: e.toString()));
     }
+    return null;
   }
 }

@@ -4,7 +4,7 @@ import 'network_service.dart';
 class Repository {
   final NetworkService networkService;
 
-  Repository({this.networkService});
+  Repository({required this.networkService});
 
   Future<List<Post>> fetchPost() async {
     final post = await networkService.fetchPost();
